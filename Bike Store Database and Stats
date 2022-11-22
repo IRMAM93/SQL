@@ -1,0 +1,38 @@
+--Create a bike store database
+
+CREATE TABLE bikestore (ID INTEGER PRIMARY KEY, name TEXT, rating INTEGER, price INTEGER);
+
+INSERT INTO bikestore VALUES (1, 'Bike1', 10, 25);
+INSERT INTO bikestore VALUES (2, 'Bike2', 20, 35);
+INSERT INTO bikestore VALUES (3, 'Bike3', 30, 45);
+INSERT INTO bikestore VALUES (4, 'Bike4', 40, 55);
+INSERT INTO bikestore VALUES (5, 'Bike5', 50, 65);
+INSERT INTO bikestore VALUES (6, 'Bike6', 60, 75);
+INSERT INTO bikestore VALUES (7, 'Bike7', 70, 85);
+INSERT INTO bikestore VALUES (8, 'Bike8', 80, 95);
+INSERT INTO bikestore VALUES (9, 'Bike9', 90, 105);
+INSERT INTO bikestore VALUES (10, 'Bike10', 100, 115);
+INSERT INTO bikestore VALUES (11, 'Bike11', 110, 125);
+INSERT INTO bikestore VALUES (12, 'Bike12', 120, 135);
+INSERT INTO bikestore VALUES (13, 'Bike13', 130, 145);
+INSERT INTO bikestore VALUES (14, 'Bike14', 140, 155);
+INSERT INTO bikestore VALUES (15, 'Bike15', 150, 165);
+
+--Display the database ordered by price
+SELECT * FROM bikestore
+ORDER BY price desc;
+
+--Display average price of bikes
+SELECT AVG(price) FROM bikestore;
+
+--Display bikes where rating score is greater than 100
+SELECT * FROM bikestore WHERE rating >100;
+
+--Display bikes where rating is greater than 130 and price is greater than 140
+SELECT * FROM bikestore WHERE rating > 130 GROUP BY price HAVING price >140;
+
+--Display bikes where rating is less than or equal to 20
+SELECT * FROM bikestore WHERE rating <= 20;
+
+--Display bikes where price is greater than or equal to 125
+SELECT * FROM bikestore WHERE price >=125; 
