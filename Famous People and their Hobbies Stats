@@ -1,0 +1,42 @@
+--Create table with famous people names, age, number of movies they've been in
+CREATE TABLE famouspeople (id INTEGER PRIMARY KEY, name TEXT, age INTEGER, Nmovies INTEGER);
+
+INSERT INTO famouspeople VALUES (1, "Leonardo Dicaprio", 48, 38);
+INSERT INTO famouspeople VALUES (2, "Jennifer Lopez", 53, 40);
+INSERT INTO famouspeople VALUES (3, "Ben Affleck", 50, 78);
+INSERT INTO famouspeople VALUES (4, "Cameron Diaz", 50, 53);
+INSERT INTO famouspeople VALUES (5, "Tom Holland", 26, 34);
+INSERT INTO famouspeople VALUES (6, "Zendaya Stoermer Coleman", 26, 19);
+INSERT INTO famouspeople VALUES (7, "Jason Momoa", 43, 30);
+INSERT INTO famouspeople VALUES (8, "Drew Barrymore", 47, 61);
+
+--Create table with their hobbies and years of practice
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY, famouspeople_id INTEGER, hobby_name TEXT, years_practiced INTEGER);
+
+INSERT INTO hobbies VALUES (1, 8, "volleyball", 8);
+INSERT INTO hobbies VALUES (2, 7, "soccer", 7);
+INSERT INTO hobbies VALUES (3, 6, "basketball", 6);
+INSERT INTO hobbies VALUES (4, 5, "golf", 5);
+INSERT INTO hobbies VALUES (5, 4, "softball", 4);
+INSERT INTO hobbies VALUES (6, 3, "swimming", 3);
+INSERT INTO hobbies VALUES (7, 2, "rugby", 2);
+INSERT INTO hobbies VALUES (8, 1, "baseball", 1);
+
+--Display all from famouspeople table
+SELECT * FROM famouspeople;
+
+--Display all from hobbies table
+SELECT * FROM hobbies;
+
+--Display all from famouspeople table where their age is greater than 49 years old
+SELECT * FROM famouspeople WHERE age > 49;
+
+
+--Display all from hobbies table where years practice is greater than or equal to 5
+SELECT * FROM hobbies WHERE years_practiced >= 5;
+
+--Display table with the famous persons' name and their preferred hobbie
+SELECT famouspeople.name, hobbies.hobby_name 
+FROM famouspeople
+JOIN hobbies
+ON famouspeople.id = hobbies.famouspeople_id;
